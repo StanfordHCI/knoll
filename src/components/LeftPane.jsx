@@ -119,17 +119,7 @@ const LeftPane = ({ selectedHour, onTimeChange, activity, gif }) => {
   const gifSrc = gifMap[gif] || inboxclipGif;   // fallback to inbox clip
 
   return (
-    <div
-      style={{
-        display:'flex',
-        flexDirection:'column',
-        gap:8,
-        paddingTop:24,
-        alignItems:'center',
-        textAlign:'center',
-        width:'100%'
-      }}
-    >
+    <div className="leftpane-container">
       {/* Activity clip */}
       <div style={{ width:'100%' }}>
         <img

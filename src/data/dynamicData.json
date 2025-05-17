@@ -3,88 +3,28 @@
     "activity": "Morning Inbox Sweep",
     "gif": "inboxclips.gif",
     "carousel": [
-      [
-        {
-          "id": 1,
-          "text": "Uses Gmail labels extensively to manage inbox clutter",
-          "value": "0.8"
-        },
-        {
-          "id": 2,
-          "text": "Clears non-urgent emails early in the day",
-          "value": "0.7"
-        },
-        {
-          "id": 3,
-          "text": "Prefers handling email before other work begins",
-          "value": "0.6"
-        },
-        {
-          "id": 4,
-          "text": "Flags follow-up emails rather than responding immediately",
-          "value": "0.5"
-        },
-        {
-          "id": 5,
-          "text": "Incorporates task management tools into email triage",
-          "value": "0.7"
-        }
-      ],
-      [
-        {
-          "id": 6,
-          "text": "Responds quickly to communications from leadership",
-          "value": "0.9"
-        },
-        {
-          "id": 7,
-          "text": "Checks Slack concurrently with email",
-          "value": "0.4"
-        },
-        {
-          "id": 8,
-          "text": "Disengages from Slack threads that aren\u2019t directly relevant",
-          "value": "0.6"
-        },
-        {
-          "id": 9,
-          "text": "Manages high email volume with automation rules",
-          "value": "0.7"
-        },
-        {
-          "id": 10,
-          "text": "Consistently prioritizes messages from a small core team",
-          "value": "0.8"
-        }
-      ],
-      [
-        {
-          "id": 11,
-          "text": "Rarely replies in Slack unless directly mentioned",
-          "value": "0.5"
-        },
-        {
-          "id": 12,
-          "text": "Prefers asynchronous communication tools over meetings",
-          "value": "0.6"
-        },
-        {
-          "id": 13,
-          "text": "Uses browser-based tools instead of native desktop apps",
-          "value": "0.4"
-        },
-        {
-          "id": 14,
-          "text": "Allocates dedicated time block for communication hygiene",
-          "value": "0.6"
-        },
-        {
-          "id": 15,
-          "text": "Avoids multitasking during inbox processing",
-          "value": "0.3"
-        }
-      ]
+    [
+      { "id": 1,  "text": "Uses Gmail labels to tame inbox clutter",          "value": "0.8" },
+      { "id": 2,  "text": "Clears non-urgent emails early in the day",        "value": "0.7" },
+      { "id": 3,  "text": "Clears email first, before other work",            "value": "0.6" },
+      { "id": 4,  "text": "Flags follow-ups instead of instant replies",      "value": "0.5" },
+      { "id": 5,  "text": "Adds tasks from email triage to task tools",       "value": "0.7" }
     ],
+    [
+      { "id": 6,  "text": "Replies fast to leadership messages",              "value": "0.9" },
+      { "id": 7,  "text": "Checks Slack concurrently with email",             "value": "0.4" },
+      { "id": 8,  "text": "Leaves Slack threads not directly relevant",       "value": "0.6" },
+      { "id": 9,  "text": "Tames heavy inbox with automation rules",          "value": "0.7" },
+      { "id": 10, "text": "Always prioritizes core team messages",            "value": "0.8" }
+    ],
+    [
+      { "id": 11, "text": "Replies in Slack only when @mentioned",            "value": "0.5" },
+      { "id": 12, "text": "Chooses async tools instead of meetings",          "value": "0.6" },
+      { "id": 13, "text": "Uses browser tools, not local desktop apps",       "value": "0.4" },
+      { "id": 14, "text": "Schedules a daily comms-cleanup block",            "value": "0.6" },
+      { "id": 15, "text": "Avoids multitasking during inbox processing",      "value": "0.3" }
+    ]
+  ],
     "suggestions": [
       {
         "id": 1,
@@ -189,88 +129,28 @@
     "activity": "Financial Modeling in Excel",
     "gif": "excelclip.gif",
     "carousel": [
-      [
-        {
-          "id": 1,
-          "text": "Builds multi-tab spreadsheets to track financial data",
-          "value": "0.7"
-        },
-        {
-          "id": 2,
-          "text": "Updates forecasts weekly with new data inputs",
-          "value": "0.6"
-        },
-        {
-          "id": 3,
-          "text": "Uses pivot tables to visualize trends across regions",
-          "value": "0.8"
-        },
-        {
-          "id": 4,
-          "text": "Understands the impact of pricing adjustments on revenue",
-          "value": "0.9"
-        },
-        {
-          "id": 5,
-          "text": "Works with historical and projected growth metrics",
-          "value": "0.7"
-        }
-      ],
-      [
-        {
-          "id": 6,
-          "text": "Regularly compares YoY performance in financial models",
-          "value": "0.6"
-        },
-        {
-          "id": 7,
-          "text": "Customizes financial templates rather than using defaults",
-          "value": "0.5"
-        },
-        {
-          "id": 8,
-          "text": "Adjusts model assumptions based on incoming reports",
-          "value": "0.8"
-        },
-        {
-          "id": 9,
-          "text": "Comfortable analyzing sensitivities in Excel",
-          "value": "0.7"
-        },
-        {
-          "id": 10,
-          "text": "Designs spreadsheets with future reuse in mind",
-          "value": "0.6"
-        }
-      ],
-      [
-        {
-          "id": 11,
-          "text": "Prefers structured formulas over embedded macros",
-          "value": "0.4"
-        },
-        {
-          "id": 12,
-          "text": "May work with shared financial documents via cloud tools",
-          "value": "0.5"
-        },
-        {
-          "id": 13,
-          "text": "Collaborates on models asynchronously",
-          "value": "0.3"
-        },
-        {
-          "id": 14,
-          "text": "Often double-checks output from formulas",
-          "value": "0.6"
-        },
-        {
-          "id": 15,
-          "text": "Uses color coding to highlight key trends",
-          "value": "0.5"
-        }
-      ]
+    [
+      { "id": 1,  "text": "Builds multi-tab sheets to track finances",         "value": "0.7" },
+      { "id": 2,  "text": "Updates forecasts weekly with new data inputs",    "value": "0.6" },
+      { "id": 3,  "text": "Uses pivot tables to spot regional trends",        "value": "0.8" },
+      { "id": 4,  "text": "Tracks how price tweaks affect revenue",           "value": "0.9" },
+      { "id": 5,  "text": "Analyzes past and projected growth metrics",       "value": "0.7" }
     ],
+    [
+      { "id": 6,  "text": "Compares YoY performance in models",               "value": "0.6" },
+      { "id": 7,  "text": "Customizes finance templates, skips defaults",     "value": "0.5" },
+      { "id": 8,  "text": "Tweaks model assumptions with new reports",        "value": "0.8" },
+      { "id": 9,  "text": "Comfortable analyzing sensitivities in Excel",     "value": "0.7" },
+      { "id": 10, "text": "Designs spreadsheets for future reuse",            "value": "0.6" }
+    ],
+    [
+      { "id": 11, "text": "Prefers formulas over embedded macros",            "value": "0.4" },
+      { "id": 12, "text": "Works on shared finance docs in the cloud",        "value": "0.5" },
+      { "id": 13, "text": "Collaborates on models asynchronously",            "value": "0.3" },
+      { "id": 14, "text": "Often double-checks output from formulas",         "value": "0.6" },
+      { "id": 15, "text": "Uses color coding to highlight key trends",        "value": "0.5" }
+    ]
+  ],
     "suggestions": [
       {
         "id": 1,
@@ -376,88 +256,28 @@
     "activity": "Writing Personal Essay Draft",
     "gif": "essayclip.gif",
     "carousel": [
-      [
-        {
-          "id": 1,
-          "text": "Writes in a stream-of-consciousness style for early drafts",
-          "value": "0.7"
-        },
-        {
-          "id": 2,
-          "text": "Revises structure after completing a rough pass",
-          "value": "0.6"
-        },
-        {
-          "id": 3,
-          "text": "Seeks external sources to support personal insights",
-          "value": "0.4"
-        },
-        {
-          "id": 4,
-          "text": "Draws inspiration from behavioral science authors",
-          "value": "0.5"
-        },
-        {
-          "id": 5,
-          "text": "Writes in Google Docs rather than native writing apps",
-          "value": "0.9"
-        }
-      ],
-      [
-        {
-          "id": 6,
-          "text": "Incorporates quote research during the writing phase",
-          "value": "0.6"
-        },
-        {
-          "id": 7,
-          "text": "Leaves placeholders for areas needing expansion",
-          "value": "0.7"
-        },
-        {
-          "id": 8,
-          "text": "Highlights text for later rewriting",
-          "value": "0.5"
-        },
-        {
-          "id": 9,
-          "text": "Writes reflectively about decision-making patterns",
-          "value": "0.6"
-        },
-        {
-          "id": 10,
-          "text": "Drafts without stopping to edit in early stages",
-          "value": "0.8"
-        }
-      ],
-      [
-        {
-          "id": 11,
-          "text": "Likely familiar with works by Kahneman and Tversky",
-          "value": "0.4"
-        },
-        {
-          "id": 12,
-          "text": "Uses writing as a tool for personal exploration",
-          "value": "0.7"
-        },
-        {
-          "id": 13,
-          "text": "Avoids distractions while writing",
-          "value": "0.3"
-        },
-        {
-          "id": 14,
-          "text": "Maintains a personal folder of writing drafts",
-          "value": "0.5"
-        },
-        {
-          "id": 15,
-          "text": "Revisits and reworks old drafts periodically",
-          "value": "0.6"
-        }
-      ]
+    [
+      { "id": 1,  "text": "Drafts stream-of-conscious early versions",        "value": "0.7" },
+      { "id": 2,  "text": "Restructures after finishing rough draft",         "value": "0.6" },
+      { "id": 3,  "text": "Adds external sources to back insights",           "value": "0.4" },
+      { "id": 4,  "text": "Inspired by behavioral science writers",           "value": "0.5" },
+      { "id": 5,  "text": "Writes in Google Docs, not native apps",           "value": "0.9" }
     ],
+    [
+      { "id": 6,  "text": "Researches quotes while drafting",                 "value": "0.6" },
+      { "id": 7,  "text": "Adds placeholders for sections to expand",         "value": "0.7" },
+      { "id": 8,  "text": "Highlights text for later rewriting",              "value": "0.5" },
+      { "id": 9,  "text": "Writes on own decision-making patterns",           "value": "0.6" },
+      { "id": 10, "text": "Drafts fast, edits later",                         "value": "0.8" }
+    ],
+    [
+      { "id": 11, "text": "Knows works by Kahneman & Tversky",                "value": "0.4" },
+      { "id": 12, "text": "Writes to explore personal ideas",                 "value": "0.7" },
+      { "id": 13, "text": "Avoids distractions while writing",               "value": "0.3" },
+      { "id": 14, "text": "Maintains a personal folder of writing drafts",    "value": "0.5" },
+      { "id": 15, "text": "Revisits & reworks old drafts periodically",       "value": "0.6" }
+    ]
+  ],
     "suggestions": [
       {
         "id": 1,
@@ -565,88 +385,28 @@
     "activity": "Lunch + Passive Browsing",
     "gif": "lunchclip.gif",
     "carousel": [
-      [
-        {
-          "id": 1,
-          "text": "Watches informational or essay-style YouTube content",
-          "value": "0.6"
-        },
-        {
-          "id": 2,
-          "text": "Interested in urbanism or city design topics",
-          "value": "0.5"
-        },
-        {
-          "id": 3,
-          "text": "Consumes long-form content while eating",
-          "value": "0.4"
-        },
-        {
-          "id": 4,
-          "text": "Engages passively with social media threads",
-          "value": "0.7"
-        },
-        {
-          "id": 5,
-          "text": "Uses Twitter primarily for professional content",
-          "value": "0.4"
-        }
-      ],
-      [
-        {
-          "id": 6,
-          "text": "Frequently bookmarks tweets for later reading",
-          "value": "0.6"
-        },
-        {
-          "id": 7,
-          "text": "Skims Reddit during downtime",
-          "value": "0.7"
-        },
-        {
-          "id": 8,
-          "text": "Regularly upvotes content without commenting",
-          "value": "0.8"
-        },
-        {
-          "id": 9,
-          "text": "Keeps a curated playlist for work sessions",
-          "value": "0.6"
-        },
-        {
-          "id": 10,
-          "text": "Updates playlists during low-focus windows",
-          "value": "0.5"
-        }
-      ],
-      [
-        {
-          "id": 11,
-          "text": "Balances light browsing with informative media",
-          "value": "0.6"
-        },
-        {
-          "id": 12,
-          "text": "Avoids active work tasks during lunch",
-          "value": "0.7"
-        },
-        {
-          "id": 13,
-          "text": "Uses music to reset focus before afternoon sessions",
-          "value": "0.4"
-        },
-        {
-          "id": 14,
-          "text": "Uses Reddit as a discovery tool for niche topics",
-          "value": "0.5"
-        },
-        {
-          "id": 15,
-          "text": "Rarely posts original content on social platforms",
-          "value": "0.3"
-        }
-      ]
+    [
+      { "id": 1,  "text": "Watches essay-style YouTube videos",               "value": "0.6" },
+      { "id": 2,  "text": "Interested in urbanism or city design topics",     "value": "0.5" },
+      { "id": 3,  "text": "Consumes long-form content while eating",          "value": "0.4" },
+      { "id": 4,  "text": "Engages passively with social media threads",      "value": "0.7" },
+      { "id": 5,  "text": "Uses Twitter mainly for professional use",         "value": "0.4" }
     ],
+    [
+      { "id": 6,  "text": "Frequently bookmarks tweets for later reading",    "value": "0.6" },
+      { "id": 7,  "text": "Skims Reddit during downtime",                     "value": "0.7" },
+      { "id": 8,  "text": "Regularly upvotes content without commenting",     "value": "0.8" },
+      { "id": 9,  "text": "Keeps a curated playlist for work sessions",       "value": "0.6" },
+      { "id": 10, "text": "Updates playlists during low-focus windows",       "value": "0.5" }
+    ],
+    [
+      { "id": 11, "text": "Balances casual browsing with info media",         "value": "0.6" },
+      { "id": 12, "text": "Avoids active work tasks during lunch",            "value": "0.7" },
+      { "id": 13, "text": "Plays music to reset focus pre-afternoon",         "value": "0.4" },
+      { "id": 14, "text": "Browses Reddit to find niche topics",              "value": "0.5" },
+      { "id": 15, "text": "Rarely posts original content online",             "value": "0.3" }
+    ]
+  ],
     "suggestions": [
       {
         "id": 1,
@@ -754,88 +514,28 @@
     "activity": "UI Design Session in Figma",
     "gif": "figmaclip.gif",
     "carousel": [
-      [
-        {
-          "id": 1,
-          "text": "Works in Figma for design and layout refinement",
-          "value": "0.9"
-        },
-        {
-          "id": 2,
-          "text": "Focuses on consistency in spacing and alignment",
-          "value": "0.7"
-        },
-        {
-          "id": 3,
-          "text": "Creates reusable components to maintain visual coherence",
-          "value": "0.8"
-        },
-        {
-          "id": 4,
-          "text": "Designs for both desktop and mobile views",
-          "value": "0.6"
-        },
-        {
-          "id": 5,
-          "text": "Collaborates with a team via comments and annotations",
-          "value": "0.7"
-        }
-      ],
-      [
-        {
-          "id": 6,
-          "text": "Prepares assets for handoff to engineering",
-          "value": "0.6"
-        },
-        {
-          "id": 7,
-          "text": "Familiar with tools like Zeplin for asset delivery",
-          "value": "0.8"
-        },
-        {
-          "id": 8,
-          "text": "Prioritizes responsive behavior in UI components",
-          "value": "0.6"
-        },
-        {
-          "id": 9,
-          "text": "Works with a shared team design system",
-          "value": "0.7"
-        },
-        {
-          "id": 10,
-          "text": "Communicates edge case concerns to developers",
-          "value": "0.5"
-        }
-      ],
-      [
-        {
-          "id": 11,
-          "text": "Reviews past design files for consistency",
-          "value": "0.4"
-        },
-        {
-          "id": 12,
-          "text": "Iterates quickly before team critique",
-          "value": "0.3"
-        },
-        {
-          "id": 13,
-          "text": "References platform-specific UI guidelines",
-          "value": "0.5"
-        },
-        {
-          "id": 14,
-          "text": "Uses prototyping tools occasionally",
-          "value": "0.4"
-        },
-        {
-          "id": 15,
-          "text": "Keeps Figma files highly organized and named",
-          "value": "0.6"
-        }
-      ]
+    [
+      { "id": 1,  "text": "Refines design/layout in Figma",                   "value": "0.9" },
+      { "id": 2,  "text": "Ensures spacing & alignment consistency",          "value": "0.7" },
+      { "id": 3,  "text": "Builds reusable components for coherence",         "value": "0.8" },
+      { "id": 4,  "text": "Designs for both desktop and mobile views",        "value": "0.6" },
+      { "id": 5,  "text": "Collaborates via comments and annotations",        "value": "0.7" }
     ],
+    [
+      { "id": 6,  "text": "Prepares assets for dev handoff",                  "value": "0.6" },
+      { "id": 7,  "text": "Uses Zeplin and similar tools for assets",         "value": "0.8" },
+      { "id": 8,  "text": "Prioritizes responsive UI components",             "value": "0.6" },
+      { "id": 9,  "text": "Works with a shared team design system",           "value": "0.7" },
+      { "id": 10, "text": "Communicates edge cases to developers",            "value": "0.5" }
+    ],
+    [
+      { "id": 11, "text": "Reviews past design files for consistency",        "value": "0.4" },
+      { "id": 12, "text": "Iterates quickly before team critique",            "value": "0.3" },
+      { "id": 13, "text": "Checks platform-specific UI guidelines",           "value": "0.5" },
+      { "id": 14, "text": "Uses prototyping tools occasionally",              "value": "0.4" },
+      { "id": 15, "text": "Keeps Figma files organized and named",            "value": "0.6" }
+    ]
+  ],
     "suggestions": [
       {
         "id": 1,
@@ -941,89 +641,29 @@
   "6": {
     "activity": "Job Search & Application Refinement",
     "gif": "jobclip.gif",
-    "carousel": [
-      [
-        {
-          "id": 1,
-          "text": "Updates resume weekly to reflect evolving skills",
-          "value": "0.8"
-        },
-        {
-          "id": 2,
-          "text": "Tailors resume and cover letter to each role",
-          "value": "0.9"
-        },
-        {
-          "id": 3,
-          "text": "Uses job tracking tools to manage applications",
-          "value": "0.7"
-        },
-        {
-          "id": 4,
-          "text": "Spends time identifying mission-aligned companies",
-          "value": "0.6"
-        },
-        {
-          "id": 5,
-          "text": "Allocates daily time block for job searching",
-          "value": "0.8"
-        }
+      "carousel": [
+        [
+          { "id": 1,  "text": "Updates resume weekly with new skills",            "value": "0.8" },
+          { "id": 2,  "text": "Tailors resume & cover letter to each role",       "value": "0.9" },
+          { "id": 3,  "text": "Uses job trackers to manage applications",         "value": "0.7" },
+          { "id": 4,  "text": "Finds companies aligned with their mission",       "value": "0.6" },
+          { "id": 5,  "text": "Allocates daily time block for job searching",     "value": "0.8" }
+        ],
+        [
+          { "id": 6,  "text": "Seeks referrals from former colleagues",           "value": "0.6" },
+          { "id": 7,  "text": "Drafts stories for behavioral questions",          "value": "0.5" },
+          { "id": 8,  "text": "Practices live interview scenarios weekly",        "value": "0.6" },
+          { "id": 9,  "text": "Reviews each firm's recent news and roadmap",      "value": "0.7" },
+          { "id": 10, "text": "Reviews past interviews for improvement",          "value": "0.6" }
+        ],
+        [
+          { "id": 11, "text": "Logs personal career goals and values",            "value": "0.5" },
+          { "id": 12, "text": "Reviews LinkedIn profile and endorsements",        "value": "0.7" },
+          { "id": 13, "text": "Sends thank-you notes post-interview",             "value": "0.4" },
+          { "id": 14, "text": "Maintains a shortlist of dream companies",         "value": "0.6" },
+          { "id": 15, "text": "Replays interviews to polish communication",       "value": "0.3" }
+        ]
       ],
-      [
-        {
-          "id": 6,
-          "text": "Reaches out to former colleagues for referrals",
-          "value": "0.6"
-        },
-        {
-          "id": 7,
-          "text": "Prepares stories for behavioral interview questions",
-          "value": "0.5"
-        },
-        {
-          "id": 8,
-          "text": "Practices live interview scenarios weekly",
-          "value": "0.6"
-        },
-        {
-          "id": 9,
-          "text": "Researches each company\u2019s recent press and roadmap",
-          "value": "0.7"
-        },
-        {
-          "id": 10,
-          "text": "Analyzes past interviews to identify improvement areas",
-          "value": "0.6"
-        }
-      ],
-      [
-        {
-          "id": 11,
-          "text": "Keeps a personal document of career goals and values",
-          "value": "0.5"
-        },
-        {
-          "id": 12,
-          "text": "Reviews LinkedIn profile and endorsements monthly",
-          "value": "0.7"
-        },
-        {
-          "id": 13,
-          "text": "Sends follow-up thank-you notes after interviews",
-          "value": "0.4"
-        },
-        {
-          "id": 14,
-          "text": "Maintains a shortlist of dream companies",
-          "value": "0.6"
-        },
-        {
-          "id": 15,
-          "text": "Watches interview recordings to refine communication style",
-          "value": "0.3"
-        }
-      ]
-    ],
     "suggestions": [
       {
         "id": 1,
