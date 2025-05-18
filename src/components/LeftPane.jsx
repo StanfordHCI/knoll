@@ -36,63 +36,78 @@ const sliderIcons = [
 
 /* ──────── Slider ──────── */
 function FancySlider({ min, max, step, value, onChange, icons }) {
-  const trackRef   = useRef(null);
-  const [dragging, setDragging] = useState(false);
+  const sliderRef          = React.useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const lastUpdateRef      = useRef(0);          // throttle redraws
+  const THROTTLE_MS        = 120;                // ~8 fps is plenty
 
-  /* -------- pointer handlers -------- */
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const move = (clientX) => {
-      const { left, width } = track.getBoundingClientRect();
-      const clamped = Math.max(0, Math.min(clientX - left, width));
-      const ratio   = clamped / width;
-      const newVal  = Math.round((min + ratio * (max - min)) / step) * step;
-      if (newVal !== value) onChange(newVal);
+    /* ─── helper that *may* trigger parent update ─── */
+    const maybeUpdate = (newVal, force = false) => {
+      if (newVal === value) return;              // no change – skip
+      const now = Date.now();
+      if (force || now - lastUpdateRef.current > THROTTLE_MS) {
+        lastUpdateRef.current = now;
+        onChange(newVal);
+      }
     };
 
-    const handlePointerMove = (e) => {
-      if (!dragging) return;
-      e.preventDefault();
-      move(e.clientX);
+    const handleMove = (clientX) => {
+      if (!isDragging || !sliderRef.current) return;
+      const { left, width } = sliderRef.current.getBoundingClientRect();
+      const clampedX = Math.max(0, Math.min(clientX - left, width));
+      const ratio     = clampedX / width;
+      const newValue  = Math.round((min + ratio * (max - min)) / step) * step;
+      maybeUpdate(newValue);                     // throttled
     };
 
-    const handlePointerUp = () => setDragging(false);
+    const mouse  = (e) => handleMove(e.clientX);
+    const touch  = (e) => {
+      if (isDragging) e.preventDefault();        // block pull-to-refresh
+      if (e.touches[0]) handleMove(e.touches[0].clientX);
+    };
+    const endDrag = (e) => {
+      if (!sliderRef.current) return;
+      /* ensure *one* final update with the exact position */
+      const finalX = e.changedTouches?.[0]?.clientX ?? e.clientX;
+      handleMove(finalX);
+      maybeUpdate(value, true /*force*/);
+      setIsDragging(false);
+    };
 
-    window.addEventListener('pointermove', handlePointerMove);
-    window.addEventListener('pointerup',   handlePointerUp);
+    window.addEventListener('mousemove', mouse);
+    window.addEventListener('mouseup',   endDrag);
+    window.addEventListener('touchmove', touch, { passive: false });
+    window.addEventListener('touchend',  endDrag);
+    window.addEventListener('touchcancel', endDrag);
 
     return () => {
-      window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('pointerup',   handlePointerUp);
+      window.removeEventListener('mousemove', mouse);
+      window.removeEventListener('mouseup',   endDrag);
+      window.removeEventListener('touchmove', touch, { passive: false });
+      window.removeEventListener('touchend',  endDrag);
+      window.removeEventListener('touchcancel', endDrag);
     };
-  }, [dragging, min, max, step, onChange, value]);
+  }, [isDragging, min, max, step, value, onChange]);
 
-  /* -------- slider visuals -------- */
-  const ratio     = (value - min) / (max - min);
-  const iconSize  = 20;
+  const ratio    = (value - min) / (max - min);
+  const iconSize = 20; // icon sizing unchanged
 
   return (
     <div
-      style={{ position: 'relative', width: '100%', height: 40 }}
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: 40,                     // leave room for icons (unchanged)
+      }}
     >
-      {/* TRACK */}
       <div
-        ref={trackRef}
+        ref={sliderRef}
         style={{
           position: 'relative',
           width: '100%',
           height: 20,
-          marginTop: 15,
-          touchAction: 'none',          // disable browser gestures
-          overscrollBehaviorY: 'contain'
-        }}
-        onPointerDown={(e) => {
-          setDragging(true);
-          e.target.setPointerCapture(e.pointerId);
-          e.preventDefault();
-          move(e.clientX);
+          marginTop: 15,                // same 15 px offset as original
         }}
       >
         <div
@@ -120,6 +135,11 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
           }}
         />
         <div
+          onMouseDown={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onTouchStart={() => setIsDragging(true)}
           style={{
             position: 'absolute',
             top: '50%',
@@ -135,7 +155,7 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
         />
       </div>
 
-      {/* ICONS */}
+      {/* icon row – absolutely identical coordinates */}
       <div
         style={{
           display: 'flex',
@@ -143,32 +163,30 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
           width: '100%',
           position: 'absolute',
           top: 0,
-          pointerEvents: 'none',        // icons themselves don’t intercept drag
         }}
       >
-        {icons.map(({ icon: Icon, value: v, key }) => {
+        {icons.map(({ icon: IconComponent, value: v, key }) => {
           const iconRatio = (v - min) / (max - min);
-          const active    = v === value;
+          const isActive  = v === value;
           return (
             <div
               key={key}
-              onPointerDown={(e) => {      // allow tap-to-jump
-                e.preventDefault();
-                onChange(v);
-              }}
+              onClick={() => onChange(v)}
               style={{
                 position: 'absolute',
                 left: `calc(${iconRatio * 100}% - ${iconSize / 2}px)`,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                fontSize: iconSize,
-                color: active ? '#d6ceba' : 'rgba(214,206,186,.5)',
                 cursor: 'pointer',
-                pointerEvents: 'auto',
+                zIndex: 1,
+                color: isActive
+                  ? '#d6ceba'
+                  : 'rgba(214,206,186,.5)',
+                fontSize: `${iconSize}px`,
               }}
               title={key.charAt(0).toUpperCase() + key.slice(1)}
             >
-              <Icon />
+              <IconComponent />
             </div>
           );
         })}
@@ -179,7 +197,7 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
 
 /* ──────── Left Pane ──────── */
 const LeftPane = ({ selectedHour, onTimeChange, activity, gif }) => {
-  const gifSrc = gifMap[gif] || inboxclipGif; // fallback
+  const gifSrc = gifMap[gif] || inboxclipGif;   // fallback gif
 
   return (
     <div className="leftpane-container">
@@ -203,14 +221,16 @@ const LeftPane = ({ selectedHour, onTimeChange, activity, gif }) => {
 
       {/* Hour selector */}
       <div style={{ width: 200, margin: '0 auto' }}>
-        <FancySlider
-          min={1}
-          max={6}
-          step={1}
-          value={selectedHour}
-          onChange={onTimeChange}
-          icons={sliderIcons}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+          <FancySlider
+            min={1}
+            max={6}
+            step={1}
+            value={selectedHour}
+            onChange={onTimeChange}
+            icons={sliderIcons}
+          />
+        </div>
       </div>
     </div>
   );
