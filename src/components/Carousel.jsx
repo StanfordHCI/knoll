@@ -58,7 +58,7 @@ const AnimatedRow = forwardRef(({ row, rowIndex }, rowContainerRef) => (
                 alignItems: 'center',
                 backgroundColor: 'var(--color-main-text)',
                 borderRadius: '8px',
-                padding: '12px 0 6px 12px',
+                padding: '10px 0 6px 12px',
                 height: '60px',
                 boxSizing: 'border-box',
               }}
@@ -131,7 +131,7 @@ const AnimatedRow = forwardRef(({ row, rowIndex }, rowContainerRef) => (
               alignItems: 'center',
               backgroundColor: 'var(--color-main-text)',
               borderRadius: '8px',
-              padding: '12px 0 6px 12px',
+              padding: '10px 0 6px 12px',
               height: '60px',
               boxSizing: 'border-box',
             }}
@@ -207,7 +207,7 @@ const Carousel = ({ carouselData }) => {
   /* 3️⃣  Duration: unchanged for >1000 px; slower formula for <1000 px */
   let animationDuration = Math.max(8, screenWidth / 80);           // original rule
   if (screenWidth < 1000 && rowWidth) {
-    animationDuration = Math.max(12, rowWidth / 80);               // ⇢ slower
+    animationDuration = Math.max(20, rowWidth / 80);               // ⇢ slower
   }
 
   return (

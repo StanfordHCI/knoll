@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FaInbox,
   FaFileExcel,
@@ -14,85 +14,85 @@ import excelclipGif from './gifs/excelclip.gif';
 import essayclipGif from './gifs/essayclip.gif';
 import lunchclipGif from './gifs/lunchclip.gif';
 import figmaclipGif from './gifs/figmaclip.gif';
-import jobclipGif from './gifs/jobclip.gif';
+import jobclipGif   from './gifs/jobclip.gif';
 
 const gifMap = {
   'inboxclips.gif': inboxclipGif,
-  'excelclip.gif': excelclipGif,
-  'essayclip.gif': essayclipGif,
-  'lunchclip.gif': lunchclipGif,
-  'figmaclip.gif': figmaclipGif,
-  'jobclip.gif': jobclipGif,
+  'excelclip.gif' : excelclipGif,
+  'essayclip.gif' : essayclipGif,
+  'lunchclip.gif' : lunchclipGif,
+  'figmaclip.gif' : figmaclipGif,
+  'jobclip.gif'   : jobclipGif,
 };
 
 const sliderIcons = [
-  { icon: FaInbox, value: 1, key: 'inbox' },
-  { icon: FaFileExcel, value: 2, key: 'excel' },
-  { icon: FaPencilAlt, value: 3, key: 'essay' },
-  { icon: FaUtensils, value: 4, key: 'lunch' },
+  { icon: FaInbox,      value: 1, key: 'inbox' },
+  { icon: FaFileExcel,  value: 2, key: 'excel' },
+  { icon: FaPencilAlt,  value: 3, key: 'essay' },
+  { icon: FaUtensils,   value: 4, key: 'lunch' },
   { icon: FaPaintBrush, value: 5, key: 'figma' },
-  { icon: FaBriefcase, value: 6, key: 'job' },
+  { icon: FaBriefcase,  value: 6, key: 'job'   },
 ];
 
 /* ──────── Slider ──────── */
 function FancySlider({ min, max, step, value, onChange, icons }) {
-  const sliderRef = React.useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
+  const trackRef   = useRef(null);
+  const [dragging, setDragging] = useState(false);
 
+  /* -------- pointer handlers -------- */
   useEffect(() => {
-    const handleMove = (clientX) => {
-      if (!isDragging || !sliderRef.current) return;
-      const { left, width } = sliderRef.current.getBoundingClientRect();
-      const clampedX = Math.max(0, Math.min(clientX - left, width));
-      const ratio = clampedX / width;
-      const newValue =
-        Math.round((min + ratio * (max - min)) / step) * step;
-      onChange(newValue);
+    const track = trackRef.current;
+    if (!track) return;
+
+    const move = (clientX) => {
+      const { left, width } = track.getBoundingClientRect();
+      const clamped = Math.max(0, Math.min(clientX - left, width));
+      const ratio   = clamped / width;
+      const newVal  = Math.round((min + ratio * (max - min)) / step) * step;
+      if (newVal !== value) onChange(newVal);
     };
 
-    const mouse = (e) => handleMove(e.clientX);
-
-    const touch = (e) => {
-      if (isDragging) e.preventDefault(); // prevent pull-to-refresh
-      if (e.touches[0]) handleMove(e.touches[0].clientX);
+    const handlePointerMove = (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      move(e.clientX);
     };
 
-    const endDrag = () => setIsDragging(false);
+    const handlePointerUp = () => setDragging(false);
 
-    window.addEventListener('mousemove', mouse);
-    window.addEventListener('mouseup', endDrag);
-    // ⚠️ non-passive listener so preventDefault works on iOS
-    window.addEventListener('touchmove', touch, { passive: false });
-    window.addEventListener('touchend', endDrag);
-    window.addEventListener('touchcancel', endDrag);
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerup',   handlePointerUp);
 
     return () => {
-      window.removeEventListener('mousemove', mouse);
-      window.removeEventListener('mouseup', endDrag);
-      window.removeEventListener('touchmove', touch, { passive: false });
-      window.removeEventListener('touchend', endDrag);
-      window.removeEventListener('touchcancel', endDrag);
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerup',   handlePointerUp);
     };
-  }, [isDragging, min, max, step, onChange]);
+  }, [dragging, min, max, step, onChange, value]);
 
-  const ratio = (value - min) / (max - min);
-  const iconSize = 20; // Size of the icon for positioning calculations
+  /* -------- slider visuals -------- */
+  const ratio     = (value - min) / (max - min);
+  const iconSize  = 20;
 
   return (
     <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: 40 /* Increased height for icons */,
-      }}
+      style={{ position: 'relative', width: '100%', height: 40 }}
     >
+      {/* TRACK */}
       <div
-        ref={sliderRef}
+        ref={trackRef}
         style={{
           position: 'relative',
           width: '100%',
           height: 20,
-          marginTop: 15 /* Make space for icons above */,
+          marginTop: 15,
+          touchAction: 'none',          // disable browser gestures
+          overscrollBehaviorY: 'contain'
+        }}
+        onPointerDown={(e) => {
+          setDragging(true);
+          e.target.setPointerCapture(e.pointerId);
+          e.preventDefault();
+          move(e.clientX);
         }}
       >
         <div
@@ -120,11 +120,6 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
           }}
         />
         <div
-          onMouseDown={(e) => {
-            e.preventDefault();
-            setIsDragging(true);
-          }}
-          onTouchStart={() => setIsDragging(true)}
           style={{
             position: 'absolute',
             top: '50%',
@@ -139,6 +134,8 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
           }}
         />
       </div>
+
+      {/* ICONS */}
       <div
         style={{
           display: 'flex',
@@ -146,34 +143,32 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
           width: '100%',
           position: 'absolute',
           top: 0,
+          pointerEvents: 'none',        // icons themselves don’t intercept drag
         }}
       >
-        {icons.map((iconData) => {
-          const IconComponent = iconData.icon;
-          const iconRatio = (iconData.value - min) / (max - min);
-          const isActive = iconData.value === value;
+        {icons.map(({ icon: Icon, value: v, key }) => {
+          const iconRatio = (v - min) / (max - min);
+          const active    = v === value;
           return (
             <div
-              key={iconData.key}
-              onClick={() => onChange(iconData.value)}
+              key={key}
+              onPointerDown={(e) => {      // allow tap-to-jump
+                e.preventDefault();
+                onChange(v);
+              }}
               style={{
                 position: 'absolute',
                 left: `calc(${iconRatio * 100}% - ${iconSize / 2}px)`,
                 top: '50%',
                 transform: 'translateY(-50%)',
+                fontSize: iconSize,
+                color: active ? '#d6ceba' : 'rgba(214,206,186,.5)',
                 cursor: 'pointer',
-                zIndex: 1,
-                color: isActive
-                  ? '#d6ceba'
-                  : 'rgba(214,206,186,.5)',
-                fontSize: `${iconSize}px`,
+                pointerEvents: 'auto',
               }}
-              title={
-                iconData.key.charAt(0).toUpperCase() +
-                iconData.key.slice(1)
-              } // Tooltip for accessibility
+              title={key.charAt(0).toUpperCase() + key.slice(1)}
             >
-              <IconComponent />
+              <Icon />
             </div>
           );
         })}
@@ -184,7 +179,7 @@ function FancySlider({ min, max, step, value, onChange, icons }) {
 
 /* ──────── Left Pane ──────── */
 const LeftPane = ({ selectedHour, onTimeChange, activity, gif }) => {
-  const gifSrc = gifMap[gif] || inboxclipGif; // fallback to inbox clip
+  const gifSrc = gifMap[gif] || inboxclipGif; // fallback
 
   return (
     <div className="leftpane-container">
@@ -201,25 +196,21 @@ const LeftPane = ({ selectedHour, onTimeChange, activity, gif }) => {
             margin: '0 auto',
           }}
         />
-        <p style={{ margin: '15px 0 15px', fontSize: 16 }}>
+        <p style={{ margin: '15px 0', fontSize: 16 }}>
           <b>{activity}</b>
         </p>
       </div>
 
       {/* Hour selector */}
       <div style={{ width: 200, margin: '0 auto' }}>
-        <div
-          style={{ display: 'flex', alignItems: 'center', gap: 20 }}
-        >
-          <FancySlider
-            min={1}
-            max={6}
-            step={1}
-            value={selectedHour}
-            onChange={onTimeChange}
-            icons={sliderIcons}
-          />
-        </div>
+        <FancySlider
+          min={1}
+          max={6}
+          step={1}
+          value={selectedHour}
+          onChange={onTimeChange}
+          icons={sliderIcons}
+        />
       </div>
     </div>
   );
