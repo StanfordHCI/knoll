@@ -404,11 +404,6 @@ if __name__ == "__main__":
 
   {/* screenshot carousel */}
   <section>
-      <h2>The GUMBO Desktop App</h2>
-      <p>
-        We built a working complete GUMBO Mac desktop app; below are screenshots.
-      </p>
-
       <div className="app-screenshot-container">
         <button
           aria-label="Previous screenshot"
