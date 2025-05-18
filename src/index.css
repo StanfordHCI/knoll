@@ -407,3 +407,93 @@ body,
     padding-top: 0;
   }
 }
+
+.app-screenshot-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1400px) {
+  .app-screenshot-container {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .app-screenshot-container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .app-screenshot-container {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-screenshot-container {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .app-screenshot-container {
+    max-width: 240px;
+  }
+}
+
+.app-screenshot-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--color-main-text);
+}
+
+
+
+.app-screenshot-arrow--left {
+  left: -70px;
+}
+
+.app-screenshot-arrow--right {
+  right: -70px;
+}
+
+@media (max-width: 1400px) {
+  .app-screenshot-arrow--left {
+    left: -60px;
+  }
+  
+  .app-screenshot-arrow--right {
+    right: -60px;
+  }
+}
+
+@media (max-width: 800px) {
+  .app-screenshot-arrow {
+    font-size: 1.75rem;
+  }
+
+  .app-screenshot-arrow--left {
+    left: -50px;
+  }
+  
+  .app-screenshot-arrow--right {
+    right: -50px;
+  }
+}
+
+.app-screenshot-image {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}

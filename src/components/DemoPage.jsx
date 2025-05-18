@@ -8,12 +8,27 @@ import { DynamicDataProvider } from '../context/DynamicDataContext';
 import { FaFileAlt, FaGithub, FaArrowDown, FaArrowUp } from 'react-icons/fa'; // Added arrow icons
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import demoChat   from './pics/demo_chat.png';
+import demoMemory from './pics/demo_memory.png';
+import demoPopup   from './pics/demo_popup.png';
+import demoSuggestions from './pics/demo_suggestions.png';
+
+
 
 const DemoPage = () => {
   const [selectedHour, setSelectedHour] = useState(1); // Default to 1 PM
   const [abstractExpanded, setAbstractExpanded] = useState(false); // State for abstract toggle
   const [activeChats, setActiveChats] = useState([]);
   const navigate = useNavigate();
+  const screenshots = [
+    { src: demoSuggestions, caption: 'The GUMBO App is a working desktop app, displaying suggestions to users live as they use their computer.' },
+    { src: demoMemory, caption: 'The Memory page allows users to view the raw propositions in their GUM, and edit, delete, or add propositions.' },
+    { src: demoPopup,   caption: 'GUMBO suggestions can be accessed easily from anywhere through a popup that can be opened at the bottom left of the screen' },
+    { src: demoChat,   caption: 'Hitting "Start Chat" on a suggestion gives the user more detail into the suggestion and a view of what GUMBO has already completed for the user. Users can continue the conversation with GUMBO in the chat.' },
+  ];
+  const [shotIdx, setShotIdx] = useState(0);
+  
 
   // Ensure we match the key type in dynamicData (keys as strings)
   const currentData = dynamicData[selectedHour.toString()] || { carousel: [], suggestions: [], activity: "" };
@@ -364,6 +379,76 @@ if __name__ == "__main__":
           We then deploy GUMBO with N=5 participants for 5 days, with the system observing the participants' screens. This longitudinal evaluation replicated our results with the underlying GUM. Additionally, participants identified a meaningful number of useful and well-executed suggestions completed by GUMBO. Two of the five participants found particularly high value in the system and asked to continue running it on their computer after the study concluded. Our evaluations also highlight limitations and boundary conditions of GUM and GUMBO, including privacy considerations and overly candid propositions. Please read our <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer" style={{ color: '#ff9d9d' }}>paper</a> for more details!
 
         </p>
+
+        {/* ───────────── GUMBO Desktop App screenshots ───────────── */}
+  <h3
+    style={{
+      color: 'var(--color-main-text)',
+      margin: '20px 0 15px 0',
+      fontSize: '1.5em',
+      fontWeight: 600,
+    }}
+  >
+    The GUMBO Desktop App
+  </h3>
+  <p
+    style={{
+      lineHeight: 1.6,
+      margin: '0 0 20px 0',
+      fontSize: '15px',
+    }}
+  >
+    We built a fully-functional macOS GUMBO client. Below are a couple of
+    screenshots that showcase the interface and key features.
+  </p>
+
+  {/* screenshot carousel */}
+  <section>
+      <h2>The GUMBO Desktop App</h2>
+      <p>
+        We built a working complete GUMBO Mac desktop app; below are screenshots.
+      </p>
+
+      <div className="app-screenshot-container">
+        <button
+          aria-label="Previous screenshot"
+          onClick={() =>
+            setShotIdx(i => (i - 1 + screenshots.length) % screenshots.length)
+          }
+          className="app-screenshot-arrow app-screenshot-arrow--left"
+        >
+          <FaChevronLeft />
+        </button>
+
+        <img
+          src={screenshots[shotIdx].src}
+          alt={`GUMBO screenshot ${shotIdx + 1}`}
+          className="app-screenshot-image"
+        />
+
+        <button
+          aria-label="Next screenshot"
+          onClick={() =>
+            setShotIdx(i => (i + 1) % screenshots.length)
+          }
+          className="app-screenshot-arrow app-screenshot-arrow--right"
+        >
+          <FaChevronRight />
+        </button>
+      </div>
+    </section>
+  {/* caption */}
+  <p
+    style={{
+      textAlign: 'center',
+      marginTop: '12px',
+      fontSize: '14px',
+      color: 'var(--color-secondary-text)',
+    }}
+  >
+    {screenshots[shotIdx].caption}
+  </p>
+
         
         <h3 style={{ 
           color: 'var(--color-main-text)', 
