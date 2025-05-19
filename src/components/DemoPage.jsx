@@ -101,7 +101,7 @@ if __name__ == "__main__":
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
-        <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center' }}>
+        <a href="https://arxiv.org/abs/2505.10831" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center' }}>
           <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Paper
         </a>
         
@@ -376,7 +376,7 @@ if __name__ == "__main__":
             Figure: GUMs are generally well calibrated. When errors occur, GUMs are underconfident in their propositions---the actual model's predictions lie above perfect calibration. In the user modeling setting, this is ideal. We should underestimate propositions to avoid eroding user trust.
           </p>
 
-          We then deploy GUMBO with N=5 participants for 5 days, with the system observing the participants' screens. This longitudinal evaluation replicated our results with the underlying GUM. Additionally, participants identified a meaningful number of useful and well-executed suggestions completed by GUMBO. Two of the five participants found particularly high value in the system and asked to continue running it on their computer after the study concluded. Our evaluations also highlight limitations and boundary conditions of GUM and GUMBO, including privacy considerations and overly candid propositions. Please read our <a href="https://arxiv.org" target="_blank" rel="noopener noreferrer" style={{ color: '#ff9d9d' }}>paper</a> for more details!
+          We then deploy GUMBO with N=5 participants for 5 days, with the system observing the participants' screens. This longitudinal evaluation replicated our results with the underlying GUM. Additionally, participants identified a meaningful number of useful and well-executed suggestions completed by GUMBO. Two of the five participants found particularly high value in the system and asked to continue running it on their computer after the study concluded. Our evaluations also highlight limitations and boundary conditions of GUM and GUMBO, including privacy considerations and overly candid propositions. Please read our <a href="https://arxiv.org/abs/2505.10831" target="_blank" rel="noopener noreferrer" style={{ color: '#ff9d9d' }}>paper</a> for more details!
 
         </p>
 
