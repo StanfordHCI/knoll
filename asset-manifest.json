@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/knoll/static/css/main.6d5d256b.css",
+    "main.js": "/knoll/static/js/main.c647e011.js",
+    "static/media/inboxclips.gif": "/knoll/static/media/inboxclips.78f5c800bf722c2abc1b.gif",
+    "static/media/lunchclip.gif": "/knoll/static/media/lunchclip.71572f4831eb420c3405.gif",
+    "static/media/figmaclip.gif": "/knoll/static/media/figmaclip.ffaa72fe27ff32661bed.gif",
+    "static/media/excelclip.gif": "/knoll/static/media/excelclip.ca889a0e939853439f22.gif",
+    "static/media/jobclip.gif": "/knoll/static/media/jobclip.05fd1269c0670cb6f5c5.gif",
+    "static/media/essayclip.gif": "/knoll/static/media/essayclip.86def0d021bb72727202.gif",
+    "static/media/demo_chat.png": "/knoll/static/media/demo_chat.9235865a0a81015a5efd.png",
+    "static/media/demo_popup.png": "/knoll/static/media/demo_popup.6c5b53e2ee93d957860a.png",
+    "static/media/demo_suggestions.png": "/knoll/static/media/demo_suggestions.871c4b109dd81f999a9a.png",
+    "static/media/demo_memory.png": "/knoll/static/media/demo_memory.d2a464aad5258c24070d.png",
+    "index.html": "/knoll/index.html",
+    "main.6d5d256b.css.map": "/knoll/static/css/main.6d5d256b.css.map",
+    "main.c647e011.js.map": "/knoll/static/js/main.c647e011.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d5d256b.css",
+    "static/js/main.c647e011.js"
+  ]
+}
