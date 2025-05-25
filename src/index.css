@@ -7,19 +7,19 @@ body,
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #282828; /* mainBackground from Swift code */
-  color: #d6ceba;           /* mainText from Swift code */
+  color: white;           /* mainText from Swift code */
 }
 
 :root {
   /* Colors from your Swift code's ColorExtensions */
   --color-main-bg: #282828;       /* mainBackground */
   --color-sidebar-bg: #2A2D32;    /* sidebarBackground */
-  --color-main-text: #d6ceba;     /* mainText */
+  --color-main-text: white;     /* mainText */
   --color-sub-text: #9c978c;      /* subText */
   --color-suggestion-text: #E8E2D3;
   --hover-bg: rgba(255, 255, 255, 0.1);
   --border-color: rgba(255, 255, 255, 0.2);
-  --chat-button-bg: #A22651;      /* from Swift code for “Start Chat” buttons */
+  --chat-button-bg: #7091E6;      /* from Swift code for “Start Chat” buttons */
 }
 
 /* APP CONTAINER */

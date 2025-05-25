@@ -1,8 +1,8 @@
 {
-  "name": "horizon-demo",
+  "name": "knoll-webpage",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://generalusermodels.github.io/",
+  "homepage": "https://stanfordhci.github.io/knoll",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
