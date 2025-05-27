@@ -82,7 +82,7 @@ if __name__ == "__main__":
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
-        <a href="" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
           <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Paper
         </a>
         
