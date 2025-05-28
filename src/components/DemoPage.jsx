@@ -43,37 +43,37 @@ if __name__ == "__main__":
   return (
 
     <div style={{margin: '0 auto', paddingLeft: '5%', paddingRight: '5%', paddingTop: '20px', paddingBottom: '20px' }}>
-      <h1 style={{ marginBottom: '20px', textAlign: 'center', fontSize:'48px' }}>Knoll: Creating a Knowledge Ecosystem for Large Language Models</h1>
+      <h1 style={{ marginBottom: '20px', textAlign: 'center', fontSize:'36px' }}>Knoll: Creating a Knowledge Ecosystem for Large Language Models</h1>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '4px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px'}}>
-          <div style={{ fontSize: '22px', fontWeight: '500' }}>Dora Zhao</div>
+          <div style={{ fontSize: '18px', fontWeight: '500' }}>Dora Zhao</div>
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px' }}>
-          <div style={{ fontSize: '22px', fontWeight: '500', }}>Diyi Yang</div>
+          <div style={{ fontSize: '18px', fontWeight: '500', }}>Diyi Yang</div>
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px'}}>
-          <div style={{ fontSize: '22px', fontWeight: '500'}}>Michael S. Bernstein</div>
+          <div style={{ fontSize: '18px', fontWeight: '500'}}>Michael S. Bernstein</div>
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
-        <div style={{  fontSize: '20px', fontWeight: '400' }}>Stanford University</div>
+        <div style={{  fontSize: '18px', fontWeight: '400' }}>Stanford University</div>
 
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
-        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '20px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
-          <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '20px' }} /> Paper
+        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '18px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+          <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Paper
         </a>
         
-        <a href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '20px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
-          <FaGithub style={{ marginRight: '0.5rem', fontSize: '20px' }} /> GitHub
+        <a href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '18px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+          <FaGithub style={{ marginRight: '0.5rem', fontSize: '18px' }} /> GitHub
         </a>
 
-        <a href="https://chromewebstore.google.com/detail/knoll/fmboebkmcojlljnachnegpbikpnbanfc" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '20px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
-          <FaChrome style={{ marginRight: '0.5rem', fontSize: '20px' }} /> Chrome Extension
+        <a href="https://chromewebstore.google.com/detail/knoll/fmboebkmcojlljnachnegpbikpnbanfc" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '18px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+          <FaChrome style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Chrome Extension
         </a>
       </div>
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         <p style={{ 
           lineHeight: '1.6',
           margin: '0',
-          fontSize: '24px'
+          fontSize: '20px'
         }}>
           Large language models are designed to encode general purpose knowledge about the world from Internet data.
           Yet, a wealth of information falls outside this scope — ranging from personal preferences to organizational policies,
@@ -102,12 +102,12 @@ if __name__ == "__main__":
               className="start-chat-button"
               style={{
                 padding: '8px 16px',
-                fontSize: '20px',
+                fontSize: '14px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                borderRadius: '22px'
+                borderRadius: '18px'
               }}
             >
               <FaArrowDown style={{ fontSize: '16px' }} /> Expand abstract
@@ -119,7 +119,7 @@ if __name__ == "__main__":
             <p style={{ 
               lineHeight: '1.6',
               margin: '15px 0 0 0',
-              fontSize: '22px'
+              fontSize: '20px'
             }}>
           To support this vision, we introduce Knoll, a software infrastructure that
           allows users to make modules by clipping content from the web or authoring shared documents on Google Docs and GitHub,
@@ -133,7 +133,7 @@ if __name__ == "__main__":
                 className="start-chat-button"
                 style={{
                   padding: '8px 16px',
-                  fontSize: '16px',
+                  fontSize: '14px',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -148,7 +148,7 @@ if __name__ == "__main__":
       </div>
       {/* Add Demo Here */}
       <div>
-        <h2 style={{fontSize: "36px"}}>
+        <h2 style={{fontSize: "28px"}}>
         Knoll allows users to connect an LLM to localized knowledge repositories that then customize the model's responses. 
         </h2>
         <div>
@@ -164,7 +164,7 @@ if __name__ == "__main__":
               borderRadius: '8px'
             }}
           />  
-          <p style={{fontSize: "22px", textAlign: "center"}}>
+          <p style={{fontSize: "16px", textAlign: "center"}}>
             Overview of Knoll's functionalities, including importing and creating modules, and demonstration<br/>
             of how relevant knowledge is automatically incorporated when interacting with models.
           </p>
@@ -177,17 +177,17 @@ if __name__ == "__main__":
         borderRadius: '6px',
         backgroundColor: 'rgba(255, 255, 255, 0.05)',
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
-        width: '100%'
+        width: '90%'
       }}>
         <h3 style={{ 
           margin: '0',
-          fontSize: '32px'
+          fontSize: '24px'
         }}>
           Building an Ecosystem of Knowledge Modules
         </h3>
         <p 
           style={{ 
-            fontSize: '24px'
+            fontSize: '20px'
           }}
         >
           We define three key functionalities that help build our ecosystem of knowledge modules.
@@ -195,18 +195,18 @@ if __name__ == "__main__":
         <Actions selected={selected} setSelected={setSelected}/>
       </div>
       <div style={{marginBottom: '4em'}}>
-        <h2 style={{fontSize: "36px"}}>
+        <h2 style={{fontSize: "28px"}}>
           Modules can contain <u>any</u> text information that users may want their language model to know.
         </h2>
         <div>
           <Carousel/>
-          <p style={{fontSize: "22px", textAlign: "center"}}>
+          <p style={{fontSize: "16px", textAlign: "center"}}>
             Examples of modules that are publicly available on Knoll.
           </p>
         </div>
       </div>
       <div>
-        <h2 style={{fontSize: "36px"}}>
+        <h2 style={{fontSize: "28px"}}>
           Relevant modules are automatically provided to the model and integrated directly into existing commercial services.
         </h2>
         <div>
@@ -222,7 +222,7 @@ if __name__ == "__main__":
               borderRadius: '8px'
             }}
           />  
-          <p style={{fontSize: "22px", textAlign: "center"}}>
+          <p style={{fontSize: "16px", textAlign: "center"}}>
             With Knoll, users interact with LLMs on existing web platforms just as they normally would.<br/>
             Relevant knowledge modules are automatically selected and incorporated into the model's
             context without additional work from the user.
@@ -235,11 +235,11 @@ if __name__ == "__main__":
           borderRadius: '6px',
           backgroundColor: 'rgba(255, 255, 255, 0.05)',
           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
-          width: '100%'
+          width: '90%'
         }}>
           <h3 style={{ 
             margin: '0',
-            fontSize: '32px'
+            fontSize: '24px'
           }}>
             Behind the Scenes
           </h3>
@@ -250,9 +250,10 @@ if __name__ == "__main__":
               margin: '1em 0',
               objectFit: 'contain',
               display: 'block',
+              width: '80%'
             }}
           />
-          <p style={{ fontSize: '24px', width: "80%"}}>
+          <p style={{ fontSize: '20px', width: "80%"}}>
             We develop a module router, consisting of a retrieve and rerank step. As input, we use the last two messages the user sent in the
             conversation and any activated modules. First, we retrieve the top 5 most similar modules
             based on sentence embeddings. Then, we rerank the retrieved modules and clippings, filtering for the top 5 documents that
@@ -309,7 +310,7 @@ if __name__ == "__main__":
             borderRadius: '6px',
             padding: '15px',
             fontFamily: 'monospace',
-            fontSize: '18px',
+            fontSize: '14px',
             whiteSpace: 'pre-wrap',
             overflowX: 'auto',
             width: '75%'
@@ -341,7 +342,7 @@ if __name__ == "__main__":
                 border: 'none',
                 borderRadius: '18px',
                 padding: '6px 16px',
-                fontSize: '18px',
+                fontSize: '14px',
                 cursor: 'pointer',
                 transition: 'background-color 0.2s'
               }}
@@ -351,7 +352,7 @@ if __name__ == "__main__":
           </div>
         </div>
         <div>
-          <p style={{fontSize: "16px"}}>
+          <p style={{fontSize: "11px"}}>
             Project Page Template from <a href="https://generalusermodels.github.io/" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>GUM</a>.
           </p>
         </div>

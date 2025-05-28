@@ -8,7 +8,7 @@
 
 .carousel-container {
   overflow: hidden;
-  width: 60%; /* 3 cards * 300px each */
+  width: 75%; /* 3 cards * 300px each */
   border-radius: 10px;
 }
 
@@ -28,9 +28,9 @@
 }
 
 .carousel-card {
-  flex: 0 0 400px;
+  flex: 0 0 300px;
   height: 180px;
-  width: 400px;
+  width: 300px;
   margin: 0 5px;
   background-color: white;
   border-radius: 8px;

@@ -60,10 +60,10 @@ export default function Carousel() {
           {cards.map((card) => (
             <a className="card-link" href={card.link} target="_blank" rel="noopener noreferrer">
               <div className="carousel-card" key={card.id}>
-                <h2 style={{color: "#282828", fontSize: "24px", margin: '0'}}>
+                <h2 style={{color: "#282828", fontSize: "20px", margin: '0'}}>
                   {card.content}
                 </h2>
-                <p style={{color: "#282828", fontSize: "18px", margin: '0'}}>
+                <p style={{color: "#282828", fontSize: "16px", margin: '0'}}>
                   {card.description}
                 </p>
               </div>
