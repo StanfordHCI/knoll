@@ -1,43 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LeftPane from './LeftPane';
-import Carousel from './Carousel';
+import Demo1 from './gifs/Demo1.gif'
+import InHouse from './gifs/InHouse.gif'
+import RAG from './pics/RAG.jpg'
+import Actions from './Actions';
 import App from '../App';
-import dynamicData from '../data/dynamicData.json';
-import { DynamicDataProvider } from '../context/DynamicDataContext';
+import Carousel from './Carousel';
 import { FaFileAlt, FaGithub, FaArrowDown, FaArrowUp, FaChrome, FaExclamationTriangle } from 'react-icons/fa'; // Added arrow icons
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import demoChat   from './pics/demo_chat.png';
-import demoMemory from './pics/demo_memory.png';
-import demoPopup   from './pics/demo_popup.png';
-import demoSuggestions from './pics/demo_suggestions.png';
 
 
 
 const DemoPage = () => {
-  const [selectedHour, setSelectedHour] = useState(1); // Default to 1 PM
+  const [selected, setSelected] = useState('create'); // Default to 1 PM
   const [abstractExpanded, setAbstractExpanded] = useState(false); // State for abstract toggle
-  const [activeChats, setActiveChats] = useState([]);
   const navigate = useNavigate();
-  const screenshots = [
-    { src: demoSuggestions, caption: 'The GUMBO App is a working desktop app, displaying suggestions to users live as they use their computer.' },
-    { src: demoMemory, caption: 'The Memory page allows users to view the raw propositions in their GUM, and edit, delete, or add propositions.' },
-    { src: demoPopup,   caption: 'GUMBO suggestions can be accessed easily from anywhere through a popup that can be opened at the bottom left of the screen' },
-    { src: demoChat,   caption: 'Hitting "Start Chat" on a suggestion gives the user more detail into the suggestion and a view of what GUMBO has already completed for the user. Users can continue the conversation with GUMBO in the chat.' },
-  ];
   const [shotIdx, setShotIdx] = useState(0);
   
 
-  // Ensure we match the key type in dynamicData (keys as strings)
-  const currentData = dynamicData[selectedHour.toString()] || { carousel: [], suggestions: [], activity: "" };
-
-  const handleTimeChange = (newHour) => {
-    setSelectedHour(newHour);
-    setActiveChats([]);
-    navigate('/');
-  };
 
   const toggleAbstract = () => {
     setAbstractExpanded(!abstractExpanded);
@@ -61,37 +43,37 @@ if __name__ == "__main__":
   return (
 
     <div style={{margin: '0 auto', paddingLeft: '5%', paddingRight: '5%', paddingTop: '20px', paddingBottom: '20px' }}>
-      <h1 style={{ marginBottom: '20px', textAlign: 'center', fontSize:'2.5em' }}>Knoll: Creating a Knowledge Ecosystem for Large Language Models</h1>
+      <h1 style={{ marginBottom: '20px', textAlign: 'center', fontSize:'48px' }}>Knoll: Creating a Knowledge Ecosystem for Large Language Models</h1>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '4px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px'}}>
-          <div style={{ fontSize: '1.1rem', fontWeight: '500' }}>Dora Zhao</div>
+          <div style={{ fontSize: '22px', fontWeight: '500' }}>Dora Zhao</div>
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px' }}>
-          <div style={{ fontSize: '1.1rem', fontWeight: '500', }}>Diyi Yang</div>
+          <div style={{ fontSize: '22px', fontWeight: '500', }}>Diyi Yang</div>
         </div>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px'}}>
-          <div style={{ fontSize: '1.1rem', fontWeight: '500'}}>Michael S. Bernstein</div>
+          <div style={{ fontSize: '22px', fontWeight: '500'}}>Michael S. Bernstein</div>
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
-        <div style={{  fontWeight: '300' }}>Stanford University</div>
+        <div style={{  fontSize: '20px', fontWeight: '400' }}>Stanford University</div>
 
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
-        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
-          <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Paper
+        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '20px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+          <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '20px' }} /> Paper
         </a>
         
-        <a href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
-          <FaGithub style={{ marginRight: '0.5rem', fontSize: '18px' }} /> GitHub
+        <a href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '20px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+          <FaGithub style={{ marginRight: '0.5rem', fontSize: '20px' }} /> GitHub
         </a>
 
-        <a href="https://chromewebstore.google.com/detail/knoll/fmboebkmcojlljnachnegpbikpnbanfc" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
-          <FaChrome style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Chrome Extension
+        <a href="https://chromewebstore.google.com/detail/knoll/fmboebkmcojlljnachnegpbikpnbanfc" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '20px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+          <FaChrome style={{ marginRight: '0.5rem', fontSize: '20px' }} /> Chrome Extension
         </a>
       </div>
 
@@ -105,11 +87,11 @@ if __name__ == "__main__":
         <p style={{ 
           lineHeight: '1.6',
           margin: '0',
-          fontSize: '15px'
+          fontSize: '24px'
         }}>
           Large language models are designed to encode general purpose knowledge about the world from Internet data.
-          Yet, a wealth of information falls outside this scope --- ranging from personal preferences to organizational policies,
-          from community-specific advice to up-to-date news --- that users want models to access but remains unavailable. In this paper,
+          Yet, a wealth of information falls outside this scope — ranging from personal preferences to organizational policies,
+          from community-specific advice to up-to-date news — that users want models to access but remains unavailable. In this paper,
           we propose a knowledge ecosystem in which end-users can create, curate, and configure custom knowledge modules that are
           utilized by language models, such as ChatGPT and Claude.
          </p>
@@ -120,15 +102,15 @@ if __name__ == "__main__":
               className="start-chat-button"
               style={{
                 padding: '8px 16px',
-                fontSize: '14px',
+                fontSize: '20px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                borderRadius: '24px'
+                borderRadius: '22px'
               }}
             >
-              <FaArrowDown style={{ fontSize: '12px' }} /> Expand abstract
+              <FaArrowDown style={{ fontSize: '16px' }} /> Expand abstract
             </button>
           </div>
         )}
@@ -137,7 +119,7 @@ if __name__ == "__main__":
             <p style={{ 
               lineHeight: '1.6',
               margin: '15px 0 0 0',
-              fontSize: '15px'
+              fontSize: '22px'
             }}>
           To support this vision, we introduce Knoll, a software infrastructure that
           allows users to make modules by clipping content from the web or authoring shared documents on Google Docs and GitHub,
@@ -151,7 +133,7 @@ if __name__ == "__main__":
                 className="start-chat-button"
                 style={{
                   padding: '8px 16px',
-                  fontSize: '14px',
+                  fontSize: '16px',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -166,60 +148,155 @@ if __name__ == "__main__":
       </div>
       {/* Add Demo Here */}
       <div>
-        <h2>
-        Knoll allows users to connect an LLM to localized knowledge repositories (or "modules") that are then used to customize the model's responses. 
+        <h2 style={{fontSize: "36px"}}>
+        Knoll allows users to connect an LLM to localized knowledge repositories that then customize the model's responses. 
         </h2>
-        {/* Add Demo Here */}
+        <div>
+          <img
+            src={Demo1}
+            alt="Demonstration of the Knoll browser extension"
+            style={{
+              width: '50%',
+              height: 'auto',
+              objectFit: 'contain',
+              display: 'block',
+              margin: '0 auto',
+              borderRadius: '8px'
+            }}
+          />  
+          <p style={{fontSize: "22px", textAlign: "center"}}>
+            Overview of Knoll's functionalities, including importing and creating modules, and demonstration<br/>
+            of how relevant knowledge is automatically incorporated when interacting with models.
+          </p>
+        </div>
       </div>
       <div style={{ 
-        margin: '14px 0px 0px 0px', 
+        margin: '14px 0px 4em 0px', 
         padding: '25px 30px', 
         borderLeft: '4px solid var(--chat-button-bg)',
         borderRadius: '6px',
         backgroundColor: 'rgba(255, 255, 255, 0.05)',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+        width: '100%'
       }}>
-        <h2 style={{ 
-          color: 'var(--color-main-text)', 
-          margin: '0 0 15px 0',
-          fontSize: '2em',
-          fontWeight: '600',
-          display: 'flex',
-          alignItems: 'center'
-        }}>
-          Getting Started with Knoll
-        </h2>
-        <FaExclamationTriangle style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Work In Progress
-        {/* <p style={{ 
-          lineHeight: '1.6',
+        <h3 style={{ 
           margin: '0',
-          fontSize: '15px'
+          fontSize: '32px'
         }}>
-          Any application that might rely on unstructured user context could benefit from a GUM. We create a new class of proactive assistants (GUMBOs) that discover and execute useful suggestions on a user's behalf based on the their GUM. GUMBO discovers helpful suggestions, determines if a suggestion is worth showing to a user and executing, and then executes the (sandboxed) suggestion to the best of its ability---sharing preliminary results with the user.
-        </p> */}
-        
-        {/* <h3>
-          How do I create a knowledge module?
+          Building an Ecosystem of Knowledge Modules
         </h3>
-        <h3>
+        <p 
+          style={{ 
+            fontSize: '24px'
+          }}
+        >
+          We define three key functionalities that help build our ecosystem of knowledge modules.
+        </p>
+        <Actions selected={selected} setSelected={setSelected}/>
+      </div>
+      <div style={{marginBottom: '4em'}}>
+        <h2 style={{fontSize: "36px"}}>
+          Modules can contain <u>any</u> text information that users may want their language model to know.
+        </h2>
+        <div>
+          <Carousel/>
+          <p style={{fontSize: "22px", textAlign: "center"}}>
+            Examples of modules that are publicly available on Knoll.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2 style={{fontSize: "36px"}}>
+          Relevant modules are automatically provided to the model and integrated directly into existing commercial services.
+        </h2>
+        <div>
+          <img
+            src={InHouse}
+            alt="Knoll works directly in commercial chatbot services, such as ChatGPT."
+            style={{
+              width: '50%',
+              height: 'auto',
+              objectFit: 'contain',
+              display: 'block',
+              margin: '0 auto',
+              borderRadius: '8px'
+            }}
+          />  
+          <p style={{fontSize: "22px", textAlign: "center"}}>
+            With Knoll, users interact with LLMs on existing web platforms just as they normally would.<br/>
+            Relevant knowledge modules are automatically selected and incorporated into the model's
+            context without additional work from the user.
+          </p>
+        </div>
+         <div style={{ 
+          margin: '14px 0px 4em 0px', 
+          padding: '25px 30px', 
+          borderLeft: '4px solid var(--chat-button-bg)',
+          borderRadius: '6px',
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+          width: '100%'
+        }}>
+          <h3 style={{ 
+            margin: '0',
+            fontSize: '32px'
+          }}>
+            Behind the Scenes
+          </h3>
+          <img
+            src={RAG}
+            style={{
+              borderRadius: '8px',
+              margin: '1em 0',
+              objectFit: 'contain',
+              display: 'block',
+            }}
+          />
+          <p style={{ fontSize: '24px', width: "80%"}}>
+            We develop a module router, consisting of a retrieve and rerank step. As input, we use the last two messages the user sent in the
+            conversation and any activated modules. First, we retrieve the top 5 most similar modules
+            based on sentence embeddings. Then, we rerank the retrieved modules and clippings, filtering for the top 5 documents that
+            have a relevance score 𝑠 > 0.3. The relevant modules are directly inserted into the user's query to the request sent to the model's server, 
+            and then removed from the returned message so it does not appear in the chat interface. 
+          </p>
+        </div>
+      </div>
+    <div>
+{/* 
+        <h3 style={{ 
+          margin: '0',
+          fontSize: '32px'
+        }}>
           What type of knowledge goes into a module?
         </h3>
-        Knoll supports users adding any type of text content that can be 
-        <h3>
-          How do I use my modules when interacting with LLMs?
-        </h3>
-        Knoll 
-        <p>
-          We currently support integrations with ChatGPT and Claude. If you are interested in using Knoll with other LLMs, please submit a pull request on our Github repo.
-        </p> */}
+          Knoll supports users adding any type of text content 
+        <div style={{margin: '1em 0'}}>
+            <h3 style={{ 
+              margin: '0',
+              fontSize: '32px'
+            }}>
+              How do I use my modules when interacting with LLMs?
+            </h3>
+            <div style={{ 
+              marginTop: '0.5em',
+              fontSize: '22px'
+            }}>
+              You can add any module to Knoll that you are interested in and turned modules on-or-off using our browser extension.
+              When you send a message to an LLM, such as ChatGPT, Knoll will then select from the modules that you have turned on and 
+              automatically provide the relevant information as context to the model. 
+              <br/><br/>
+              We currently support integrations with ChatGPT and Claude. If you are interested in using Knoll with other LLMs,
+              please submit a pull request on our Github <a style={{color: 'white'}} href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" >repo</a>.
+            </div>
+        </div> */}
       </div>
       
 
-      <div>
+      <div style={{marginBottom: '4em'}}>
         <h3 style={{ 
           color: 'var(--color-main-text)', 
           margin: '20px 0 15px 0',
-          fontSize: '1.5em',
+          fontSize: '32px',
           fontWeight: '600',
           display: 'flex',
           alignItems: 'center'
@@ -232,17 +309,19 @@ if __name__ == "__main__":
             borderRadius: '6px',
             padding: '15px',
             fontFamily: 'monospace',
-            fontSize: '14px',
+            fontSize: '18px',
             whiteSpace: 'pre-wrap',
-            overflowX: 'auto'
+            overflowX: 'auto',
+            width: '75%'
           }}>
             <pre id="bibtex-content" style={{ margin: '0' }}>
-          {`@article{zhao2025knoll,
-            title={Knoll: Creating a Knowledge Ecosystem for Large Language Models},
-            author={Zhao, Dora and Yang, Diyi and Bernstein, Michael S.},
-            journal={arXiv preprint},
-            year={2025}
-          }`}
+        {`@article{zhao2025knoll, 
+         title={Knoll: Creating a Knowledge Ecosystem for Large Language Models},
+         author={Zhao, Dora and Yang, Diyi and Bernstein, Michael S.},
+         journal={arXiv preprint},
+         year={2025}
+}`
+         }
             </pre>
             <button 
               onClick={() => {
@@ -255,14 +334,14 @@ if __name__ == "__main__":
               id="copy-btn"
               style={{
                 position: 'absolute',
-                top: '10px',
-                right: '10px',
+                top: '14px',
+                right: '14px',
                 backgroundColor: 'var(--chat-button-bg)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '18px',
-                padding: '6px 12px',
-                fontSize: '12px',
+                padding: '6px 16px',
+                fontSize: '18px',
                 cursor: 'pointer',
                 transition: 'background-color 0.2s'
               }}
@@ -270,6 +349,11 @@ if __name__ == "__main__":
               Copy
             </button>
           </div>
+        </div>
+        <div>
+          <p style={{fontSize: "16px"}}>
+            Project Page Template from <a href="https://generalusermodels.github.io/" target="_blank" rel="noopener noreferrer" style={{color: "white"}}>GUM</a>.
+          </p>
         </div>
       </div>
   );

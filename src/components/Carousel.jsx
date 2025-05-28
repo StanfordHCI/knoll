@@ -1,255 +1,80 @@
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  forwardRef,
-} from 'react';
+import React, { useState, useEffect, useRef } from "react";
+import "./Carousel.css";
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-/* ─────────────────────────  ROW  ───────────────────────── */
+const cards = [
+  { id: 1, content: "CHI 2025 Papers", description: "Titles and abstracts for all papers in the main proceedings at CHI 2025", link: "https://knollapp.com/add/ZlRKvCmBesYJ66EQNr7R" },
+  { id: 2, content: "Research Elevator Pitches", description:"Advice on how to give research elevator pitches at HCI conferences", link: "https://knollapp.com/add/j4ZTw0UWBE8qCgIbZqbB" },
+  { id: 3, content: "CS SoP Writing Tips", description: "Tips on how to write a strong statement of purposes for CS PhD applications" , link: "https://knollapp.com/add/E6kJmHBoarRp8WZqKa6c" },
+  { id: 4, content: "Reasoning LLMs", description:"List of recent papers on reasoning in LLMs with a summary of key findings", link: "https://knollapp.com/add/D8bwhoGBBByAksN13XH2"  },
+  { id: 5, content: "Yokohama Recommendations", description:"Crowdsourced recommendations for Yokohama, Japan", link: "https://knollapp.com/add/J8Jpo5nuaCFjw4UP4y41"  },
+  { id: 6, content: "Welcome to Knoll", description:"Tutorial and FAQ on how to use the Knoll browser extension", link: "https://knollapp.com/add/Owpgm2DXhp0a0dnM1gZa"  },
+];
 
-const AnimatedRow = forwardRef(({ row, rowIndex }, rowContainerRef) => (
-  <div
-    style={{
-      position: 'relative',
-      overflow: 'hidden',
-      marginBottom: '15px',
-    }}
-  >
-    <div
-      ref={rowContainerRef}
-      style={{
-        display: 'flex',
-        animation: 'marquee var(--animation-duration) linear infinite',
-      }}
-    >
-      {/* ORIGINAL SET */}
-      {row.map((card, i) => {
-        const isFirstCardInSecondRow = rowIndex === 1 && i === 0;
-        return (
-          <div
-            key={card.id}
-            style={{
-              position: 'relative',
-              marginRight: '20px',
-              flex: '0 0 275px',
-              marginLeft: isFirstCardInSecondRow ? '132px' : '0',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '4px',
-                fontSize: '12px',
-                marginLeft: '6px',
-                marginRight: '6px',
-                color: 'var(--color-main-text)',
-                opacity: 0.7,
-              }}
-            >
-              <span>Proposition</span>
-              <span>Confidence</span>
-            </div>
+const VISIBLE_COUNT = 3;
 
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                backgroundColor: 'var(--color-main-text)',
-                borderRadius: '8px',
-                padding: '10px 0 6px 12px',
-                height: '60px',
-                boxSizing: 'border-box',
-              }}
-            >
-              <div
-                style={{
-                  width: '210px',
-                  color: '#333',
-                  fontFamily: 'sans-serif',
-                  fontSize: '16px',
-                  lineHeight: 1.2,
-                  height: '40px',
-                  overflow: 'hidden',
-                }}
-              >
-                {card.text}
-              </div>
-              <div
-                style={{
-                  width: '1px',
-                  backgroundColor: '#888888',
-                  height: '40px',
-                  margin: '0 2px 0 10px',
-                }}
-              />
-              <div
-                style={{
-                  flex: 1,
-                  fontWeight: 'bold',
-                  fontSize: '17px',
-                  color: '#333',
-                  textAlign: 'center',
-                }}
-              >
-                {card.value}
-              </div>
-            </div>
-          </div>
-        );
-      })}
+export default function Carousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const timeoutRef = useRef(null);
+  const delay = 5000;
 
-      {/* DUPLICATE SET (for seamless loop) */}
-      {row.map((card) => (
-        <div
-          key={`${card.id}-dup`}
-          style={{
-            position: 'relative',
-            marginRight: '20px',
-            flex: '0 0 275px',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginBottom: '4px',
-              marginLeft: '6px',
-              marginRight: '6px',
-              fontSize: '12px',
-              color: 'var(--color-main-text)',
-              opacity: 0.7,
-            }}
-          >
-            <span>Proposition</span>
-            <span>Confidence</span>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              backgroundColor: 'var(--color-main-text)',
-              borderRadius: '8px',
-              padding: '10px 0 6px 12px',
-              height: '60px',
-              boxSizing: 'border-box',
-            }}
-          >
-            <div
-              style={{
-                width: '200px',
-                color: '#333',
-                fontFamily: 'sans-serif',
-                fontSize: '16px',
-                lineHeight: 1.2,
-                height: '40px',
-                overflow: 'hidden',
-              }}
-            >
-              {card.text}
-            </div>
-            <div
-              style={{
-                width: '1px',
-                backgroundColor: '#888888',
-                height: '60px',
-                margin: '0 2px',
-              }}
-            />
-            <div
-              style={{
-                flex: 1,
-                fontWeight: 'bold',
-                fontSize: '17px',
-                color: '#333',
-                textAlign: 'center',
-              }}
-            >
-              {card.value}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-));
+  const resetTimeout = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  };
 
-/* ─────────────────────────  CAROUSEL  ───────────────────────── */
+  // useEffect(() => {
+  //   resetTimeout();
+  //   timeoutRef.current = setTimeout(() => {
+  //     setCurrentIndex((prevIndex) =>
+  //       prevIndex + 1 > cards.length - VISIBLE_COUNT ? 0 : prevIndex + 1
+  //     );
+  //   }, delay);
+  //   return () => resetTimeout();
+  // }, [currentIndex]);
 
-const Carousel = ({ carouselData }) => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [startOffset, setStartOffset] = useState('-50%');
-  const [rowWidth, setRowWidth] = useState(null);          // store single-set width
-  const firstRowRef = useRef(null);
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? cards.length - VISIBLE_COUNT : prev - 1
+    );
+  };
 
-  /* 1️⃣  Handle viewport resize */
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  /* 2️⃣  Compute offset + remember real row width for small screens */
-  useLayoutEffect(() => {
-    if (screenWidth < 1000 && firstRowRef.current) {
-      const totalTrackWidth = firstRowRef.current.scrollWidth;     // both copies
-      const singleSetWidth = totalTrackWidth / 2;
-      setRowWidth(singleSetWidth);                                 // ← remember
-      const px = Math.max(singleSetWidth - screenWidth, 0);
-      setStartOffset(`-${px}px`);
-    } else {
-      setRowWidth(null);
-      setStartOffset('-50%');
-    }
-  }, [screenWidth, carouselData]);
-
-  /* 3️⃣  Duration: unchanged for >1000 px; slower formula for <1000 px */
-  let animationDuration = Math.max(8, screenWidth / 80);           // original rule
-  if (screenWidth < 1000 && rowWidth) {
-    animationDuration = Math.max(20, rowWidth / 80);               // ⇢ slower
-  }
+  const handleNext = () => {
+    setCurrentIndex((prev) =>
+      prev + 1 > cards.length - VISIBLE_COUNT ? 0 : prev + 1
+    );
+  };
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        padding: 0,
-        boxSizing: 'border-box',
-        '--animation-duration': `${animationDuration}s`,
-        '--marquee-start': startOffset,
-      }}
-    >
-      <style>{`
-        @keyframes marquee {
-          0%   { transform: translateX(var(--marquee-start)); }
-          100% { transform: translateX(0); }
-        }
-      `}</style>
+    <div className="carousel-wrapper">
+      <button className="arrow" onClick={handlePrev}>
+        <FaChevronLeft/>
+      </button>
 
-      <h3
-        style={{
-          color: 'var(--color-main-text)',
-          textAlign: 'left',
-          marginBottom: '12px',
-          fontSize: '1.5em',
-        }}
-      >
-        GUMs learn a wide range of preferences from unstructured interaction
-      </h3>
+      <div className="carousel-container">
+        <div
+          className="carousel-track"
+          style={{
+            transform: `translateX(-${(75 / VISIBLE_COUNT) * currentIndex}%)`,
+          }}
+        >
+          {cards.map((card) => (
+            <a className="card-link" href={card.link} target="_blank" rel="noopener noreferrer">
+              <div className="carousel-card" key={card.id}>
+                <h2 style={{color: "#282828", fontSize: "24px", margin: '0'}}>
+                  {card.content}
+                </h2>
+                <p style={{color: "#282828", fontSize: "18px", margin: '0'}}>
+                  {card.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
 
-      {carouselData.map((row, idx) => (
-        <AnimatedRow
-          key={idx}
-          row={row}
-          rowIndex={idx}
-          ref={idx === 0 ? firstRowRef : null}
-        />
-      ))}
+      <button className="arrow" onClick={handleNext}>
+        <FaChevronRight/>
+      </button>
     </div>
   );
-};
-
-export default Carousel;
+}

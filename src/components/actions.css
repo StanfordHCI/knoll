@@ -1,0 +1,7 @@
+.action {
+    padding: '8px 16px';
+    font-size: '16px';
+    cursor: 'pointer';
+    display: 'flex';
+    border-radius: '22px';
+}

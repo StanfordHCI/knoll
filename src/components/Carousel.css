@@ -1,0 +1,57 @@
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 60%; /* 3 cards * 300px each */
+  border-radius: 10px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: max-content;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.card-link:hover {
+    background-color: "red";
+    cursor: pointer;
+}
+
+.carousel-card {
+  flex: 0 0 400px;
+  height: 180px;
+  width: 400px;
+  margin: 0 5px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  align-items: center;
+  padding: 1em
+}
+
+.carousel-card:hover {
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 15px;
+  color: white;
+}
