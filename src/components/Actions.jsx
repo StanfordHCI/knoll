@@ -51,7 +51,7 @@ const Actions = (props) => {
                         let name = props.selected === action ? 'selected' : 'start-chat-button'
                         let values = actionOptions[action]
                         return (
-                            <button className={name} style={{fontSize: "14px"}} onClick={() => props.setSelected(action)}>
+                            <button className={name} style={{fontSize: "13px"}} onClick={() => props.setSelected(action)}>
                                 {values.icon} {values.name}
                             </button>
                         )
@@ -63,7 +63,7 @@ const Actions = (props) => {
                     Object.keys(actionOptions).map(action => {
                         if (props.selected === action) {
                             return (
-                                <div style={{'margin': '1em 0', fontSize: '18px', borderRadius: '8px', padding: '1.5em', width: '70%', background: '#414141'}}>
+                                <div style={{'margin': '1em 0', fontSize: '16px', borderRadius: '8px', padding: '1.5em', width: '70%', background: '#414141'}}>
                                     {actionOptions[action].description}
                                 </div> 
                             )

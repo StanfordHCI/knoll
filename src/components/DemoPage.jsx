@@ -43,7 +43,7 @@ if __name__ == "__main__":
   return (
 
     <div style={{margin: '0 auto', paddingLeft: '5%', paddingRight: '5%', paddingTop: '20px', paddingBottom: '20px' }}>
-      <h1 style={{ marginBottom: '20px', textAlign: 'center', fontSize:'36px' }}>Knoll: Creating a Knowledge Ecosystem for Large Language Models</h1>
+      <h1 style={{ marginBottom: '20px', textAlign: 'center', fontSize:'32px' }}>Knoll: Creating a Knowledge Ecosystem for Large Language Models</h1>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '4px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 15px'}}>
@@ -59,20 +59,20 @@ if __name__ == "__main__":
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '25px' }}>
-        <div style={{  fontSize: '18px', fontWeight: '400' }}>Stanford University</div>
+        <div style={{  fontSize: '16px', fontWeight: '400' }}>Stanford University</div>
 
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
-        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '18px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+        <a href="https://arxiv.org/abs/2505.19335" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '8px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
           <FaFileAlt style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Paper
         </a>
         
-        <a href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '18px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+        <a href="https://github.com/dorazhao99/community-lm-extension" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '8px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
           <FaGithub style={{ marginRight: '0.5rem', fontSize: '18px' }} /> GitHub
         </a>
 
-        <a href="https://chromewebstore.google.com/detail/knoll/fmboebkmcojlljnachnegpbikpnbanfc" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '12px 12px', fontSize: '18px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
+        <a href="https://chromewebstore.google.com/detail/knoll/fmboebkmcojlljnachnegpbikpnbanfc" target="_blank" rel="noopener noreferrer" className="start-chat-button" style={{ padding: '8px', fontSize: '16px', display: 'flex', alignItems: 'center', borderRadius: '18px' }}>
           <FaChrome style={{ marginRight: '0.5rem', fontSize: '18px' }} /> Chrome Extension
         </a>
       </div>
@@ -85,9 +85,9 @@ if __name__ == "__main__":
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
       }}>
         <p style={{ 
-          lineHeight: '1.6',
+          lineHeight: '1.2',
           margin: '0',
-          fontSize: '20px'
+          fontSize: '18px'
         }}>
           Large language models are designed to encode general purpose knowledge about the world from Internet data.
           Yet, a wealth of information falls outside this scope — ranging from personal preferences to organizational policies,
@@ -117,9 +117,9 @@ if __name__ == "__main__":
         {abstractExpanded && (
           <>
             <p style={{ 
-              lineHeight: '1.6',
+              lineHeight: '1.2',
               margin: '15px 0 0 0',
-              fontSize: '20px'
+              fontSize: '18px'
             }}>
           To support this vision, we introduce Knoll, a software infrastructure that
           allows users to make modules by clipping content from the web or authoring shared documents on Google Docs and GitHub,
@@ -140,7 +140,7 @@ if __name__ == "__main__":
                   gap: '8px'
                 }}
               >
-                <FaArrowUp style={{ fontSize: '12px' }} /> Collapse abstract
+                <FaArrowUp style={{ fontSize: '16px' }} /> Collapse abstract
               </button>
             </div>
           </>
@@ -148,7 +148,7 @@ if __name__ == "__main__":
       </div>
       {/* Add Demo Here */}
       <div>
-        <h2 style={{fontSize: "28px"}}>
+        <h2 style={{fontSize: "24px"}}>
         Knoll allows users to connect an LLM to localized knowledge repositories that then customize the model's responses. 
         </h2>
         <div>
@@ -181,13 +181,13 @@ if __name__ == "__main__":
       }}>
         <h3 style={{ 
           margin: '0',
-          fontSize: '24px'
+          fontSize: '22px'
         }}>
           Building an Ecosystem of Knowledge Modules
         </h3>
         <p 
           style={{ 
-            fontSize: '20px'
+            fontSize: '18px'
           }}
         >
           We define three key functionalities that help build our ecosystem of knowledge modules.
@@ -195,7 +195,7 @@ if __name__ == "__main__":
         <Actions selected={selected} setSelected={setSelected}/>
       </div>
       <div style={{marginBottom: '4em'}}>
-        <h2 style={{fontSize: "28px"}}>
+        <h2 style={{fontSize: "24px"}}>
           Modules can contain <u>any</u> text information that users may want their language model to know.
         </h2>
         <div>
@@ -206,7 +206,7 @@ if __name__ == "__main__":
         </div>
       </div>
       <div>
-        <h2 style={{fontSize: "28px"}}>
+        <h2 style={{fontSize: "24px"}}>
           Relevant modules are automatically provided to the model and integrated directly into existing commercial services.
         </h2>
         <div>
@@ -253,7 +253,7 @@ if __name__ == "__main__":
               width: '80%'
             }}
           />
-          <p style={{ fontSize: '20px', width: "80%"}}>
+          <p style={{ fontSize: '18px', width: "80%"}}>
             We develop a module router, consisting of a retrieve and rerank step. As input, we use the last two messages the user sent in the
             conversation and any activated modules. First, we retrieve the top 5 most similar modules
             based on sentence embeddings. Then, we rerank the retrieved modules and clippings, filtering for the top 5 documents that
