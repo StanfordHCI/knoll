@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/knoll/static/css/main.a663b3bc.css",
-    "main.js": "/knoll/static/js/main.a1339f70.js",
+    "main.css": "/knoll/static/css/main.8099ce21.css",
+    "main.js": "/knoll/static/js/main.e67527c2.js",
     "static/media/Demo1.gif": "/knoll/static/media/Demo1.a625f296bb90e80a59e1.gif",
     "static/media/InHouse.gif": "/knoll/static/media/InHouse.4f59180cba5c4b35e0fa.gif",
     "static/media/RAG.jpg": "/knoll/static/media/RAG.7d2e6c265c9012c2c71c.jpg",
     "index.html": "/knoll/index.html",
-    "main.a663b3bc.css.map": "/knoll/static/css/main.a663b3bc.css.map",
-    "main.a1339f70.js.map": "/knoll/static/js/main.a1339f70.js.map"
+    "main.8099ce21.css.map": "/knoll/static/css/main.8099ce21.css.map",
+    "main.e67527c2.js.map": "/knoll/static/js/main.e67527c2.js.map"
   },
   "entrypoints": [
-    "static/css/main.a663b3bc.css",
-    "static/js/main.a1339f70.js"
+    "static/css/main.8099ce21.css",
+    "static/js/main.e67527c2.js"
   ]
 }
